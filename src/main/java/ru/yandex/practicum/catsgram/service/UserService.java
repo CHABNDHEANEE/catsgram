@@ -30,4 +30,8 @@ public class UserService {
         users.put(user.getEmail(), user);
         return user;
     }
+
+    public User findUserByEmail(String email) {
+        return users.get(email);
+    }
 }
