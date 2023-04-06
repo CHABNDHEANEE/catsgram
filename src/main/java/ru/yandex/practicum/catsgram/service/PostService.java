@@ -8,6 +8,7 @@ import ru.yandex.practicum.catsgram.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PostService {
@@ -21,6 +22,12 @@ public class PostService {
 
     public List<Post> findAll() {
         return posts;
+    }
+
+    public Optional<Post> findPostById(int postId) {
+        return posts.stream()
+                .filter(x -> x.getId() == postId)
+                .findFirst();
     }
 
     public Post create(Post post) {
